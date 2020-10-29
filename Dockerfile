@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:latest
 
 RUN ( apt update ;\
       apt upgrade -y )
@@ -8,8 +8,7 @@ RUN ( apt install -y openssh-server vim screen unzip curl )
 RUN ( mkdir /var/run/sshd ;\
       sed -i "/PermitRootLogin/s/#Permit/Permit/" /etc/ssh/sshd_config ;\
       sed -i "/PermitRootLogin/s/prohibit-password/yes/" /etc/ssh/sshd_config ;\
-      sed -i "s/UsePAM yes/#UsePAM yes/g" /etc/ssh/sshd_config ;\
-      sed -i "s/#Port 22/Port 2022/" /etc/ssh/sshd_config )
+      sed -i "s/UsePAM yes/#UsePAM yes/g" /etc/ssh/sshd_config )
 
 RUN ( echo 'root:debian' | chpasswd )
 
@@ -39,8 +38,7 @@ RUN ( apt clean && apt autoclean ;\
       rm -rf /tmp/* )
 
 # 对外开放22端口
-EXPOSE 80
-EXPOSE 2022
+EXPOSE 22
 
 # 启动命令行
 CMD ["/usr/sbin/sshd", "-D"]
