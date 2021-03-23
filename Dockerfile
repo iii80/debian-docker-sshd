@@ -2,7 +2,7 @@ FROM debian
 
 WORKDIR /root
 COPY *.sh /root/
-RUN sh init.sh
+RUN bash init.sh
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US \
     LC_ALL=en_US.UTF-8

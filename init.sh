@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 set -x
 
@@ -26,7 +26,8 @@ update-locale LANG=en_US.UTF-8
 
 # 配置系统时区
 apt install tzdata -y
-cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
 
 # 清理环境
 apt purge -y --auto-remove
