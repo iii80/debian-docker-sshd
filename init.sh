@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -x
+
 apt update
 apt upgrade -y
 
@@ -15,7 +17,11 @@ echo 'root:debian' | chpasswd
 
 # 安装配置系统语言环境
 apt install locales -y
-locale-gen --no-purge en_US.UTF-8
+
+sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen
+sed -i '/zh_CN.UTF-8/s/^# //g' /etc/locale.gen
+
+locale-gen
 update-locale LANG=en_US.UTF-8
 
 # 配置系统时区
