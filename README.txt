@@ -1,7 +1,7 @@
 # debian-docker-sshd
 
-FROM debian:stretch
+FROM debian
 
 default password: debian
-sshd default port: 2022
+sshd default port: 22
 
