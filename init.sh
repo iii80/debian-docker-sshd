@@ -4,7 +4,7 @@ set -x
 
 #安装常用软件
 apt update
-apt install -y openssh-server vim screen locales tzdata htop nload ncdu wget curl tar gzip bzip2 xz-utils unzip net-tools sudo ca-certificates
+apt install -y openssh-server vim screen locales tzdata htop nload ncdu wget curl tar gzip bzip2 xz-utils unzip net-tools iputils-ping sudo ca-certificates
 
 # 允许密码登录
 mkdir /var/run/sshd
