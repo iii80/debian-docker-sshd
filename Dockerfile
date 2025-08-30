@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:buster
 
 WORKDIR /root
 COPY init.sh /root/
