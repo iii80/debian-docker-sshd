@@ -3,7 +3,8 @@ FROM debian:trixie
 WORKDIR /root
 COPY init.sh /root/
 RUN bash init.sh
-ENV LANG=en_US.UTF-8 \
+ENV DEBIAN_FRONTEND=noninteractive
+    LANG=en_US.UTF-8 \
     LANGUAGE=en_US \
     LC_ALL=en_US.UTF-8
 EXPOSE 22
